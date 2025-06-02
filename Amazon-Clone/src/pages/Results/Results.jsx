@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../Components/Layout/Layout";
 import classes from "./Results.module.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { productUrl } from "../../Api/endPoints";
-import Loader from "../../components/Loader/Loader";
-import ProductCard from "../../components/Product/ProductCard";
+import Loader from "../../Components/Loader/Loader";
+import ProductCard from "../../Components/Product/ProductCard";
 function Results() {
   const [results,setResults] = useState([]);
   const { categoryName } = useParams();

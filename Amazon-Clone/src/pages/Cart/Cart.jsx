@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../Components/Layout/Layout";
 import { Link } from "react-router-dom";
-import { DataContext } from "../../components/DataProvider/DataProvider";
-import ProductCard from "../../components/Product/ProductCard";
+import { DataContext } from "../../Components/DataProvider/DataProvider";
+import ProductCard from "../../Components/Product/ProductCard";
 import classes from "./cart.module.css";
-import CurrencyFormat from "../../components/Currencyformat/Currencyformat";
+import CurrencyFormat from "../../Components/Currencyformat/Currencyformat";
 import { Type } from "../../Utility/actiontype";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
