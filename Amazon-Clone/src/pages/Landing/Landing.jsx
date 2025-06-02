@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../Components/Layout/Layout';
-import CarouselEffect from '../../components/Carousel/CarouselEffect'
-import Product from '../../components/Product/Product'
+import CarouselEffect from '../../Components/Carousel/CarouselEffect'
+import Product from '../../Components/Product/Product'
 
 import CatagoryEffect from '../../components/Catagory/CatagoryEffect'
 
