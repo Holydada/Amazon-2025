@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import axios from "axios";
 import classes from './product.module.css'
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../Components/Loader/Loader";
 function Product() {
   const [products, setproducts] = useState([]);
      const [isLoading, setIsLoading] = useState(false);

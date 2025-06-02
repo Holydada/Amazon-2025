@@ -6,7 +6,7 @@ import { BsSearch } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
 import {auth} from '../../Utility/firebase'
 import { useContext } from "react";
-import { DataContext } from "../DataProvider/DataProvider";
+import { DataContext } from "../../Components/DataProvider/DataProvider";
 import LowerHeader from "./LowerHeader";
 
 function Header() {
