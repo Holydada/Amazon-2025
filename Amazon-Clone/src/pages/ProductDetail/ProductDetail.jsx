@@ -5,7 +5,7 @@ import { productUrl } from "../../Api/endPoints";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../../Components/Product/ProductCard";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../Components/Loader/Loader";
 function ProductDetail() {
   const { productId } = useParams();
   const [product, setproduct] = useState([]);
