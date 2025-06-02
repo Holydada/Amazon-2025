@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import classes from "./Header.module.css";
+import classes from "./header.module.css";
 function LowerHeader() {
   return (
     <div className={classes.lower_container}>
