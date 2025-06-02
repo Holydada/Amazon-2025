@@ -1,106 +1,111 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-import { MdLocationPin } from "react-icons/md";
-import { FaSearch } from "react-icons/fa";
-import { BiCartAdd } from "react-icons/bi";
-
 import classes from "./Header.module.css";
-import LowerHeader from "./LowerHeader";
+import { BiCart } from "react-icons/bi";
+import { BsSearch } from "react-icons/bs";
+import { SlLocationPin } from "react-icons/sl";
+import {auth} from '../../Utility/firebase'
+import { useContext } from "react";
 import { DataContext } from "../DataProvider/DataProvider";
-import { auth } from "../../Utility/firebase";
+import LowerHeader from "./LowerHeader";
 
-const Header = () => {
-  const [{ basket, user }] = useContext(DataContext);
-
-  const totalItem = basket?.reduce((amount, item) => {
-    return item.amount + amount;
-  }, 0);
-
+function Header() {
+  // const [basket] = useContext(DataContext);
+  const [state] = useContext(DataContext); // Correct destructuring
+  const basket = state.basket;// Access basket from state
+  const user = state.user;
+  const totalItem=basket?.reduce((amount,item)=>{
+    return item.amount+amount},0)
+  
+  
   return (
-    <section className={classes.fixed}>
-      <section className={classes.navBar}>
-        <section className={classes.header__container}>
-          {/* left header */}
-          <div className={classes.logo__container}>
-            {/* logo */}
-            <Link to="/">
-              <img
-                src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                alt="amazon logo"
-              />
-            </Link>
-            {/* delivery */}
-            <div className={classes.delivery}>
-              <span>
+    <>
+      <section className={classes.fixed}>
+        <section>
+          <div className={classes.header_container}>
+            <div className={classes.logo_container}>
+              {/* logo */}
+              <Link to="/">
+                <img
+                  src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                  alt="amazon logo"
+                />
+              </Link>
+              {/* delivery */}
+              <div className={classes.delivery}>
+                <span>
+                  <SlLocationPin />
+                </span>
                 {/* icon */}
-                <MdLocationPin />
-              </span>
-              <div>
-                <p>Delivered to</p>
-                <span>Ethiopia</span>
+                <div>
+                  <p>Delivered to</p>
+                  <span>Ethiopia</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* middle header */}
-          <div className={classes.search}>
-            {/* search */}
-            <select name="" id="">
-              <option value="">All</option>
-            </select>
-            <input type="text" name="" id="" placeholder="Search Product" />
-            {/* search icon */}
-            <FaSearch size={37.5} />
-          </div>
-
-          {/* right header */}
-          <div className={classes.order__container}>
-            {/* right side link */}
-            <Link to="#" className={classes.language}>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg/125px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg.png"
-                alt=""
-              />
-              <select name="" id="">
-                <option value="">EN</option>
+            {/* searchbar section */}
+            <div className={classes.search}>
+              <select name="" id="" size={1.5}>
+                <option value="">All</option>
               </select>
-            </Link>
-            {/* three component */}
-            <Link to={!user && "/auth"}>
+              <input type="text" name="" id="" placeholder="search product" />
+              {/* icon */}
+              <BsSearch size={20} />
+            </div>
+
+            {/* rightside */}
+            <div className={classes.order_container}>
+              <Link to="" className={classes.language}>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_States_%281890%E2%80%931891%29.svg/640px-Flag_of_the_United_States_%281890%E2%80%931891%29.svg.png"
+                  alt=""
+                />
+                <select name="" id="">
+                  <option value="">EN</option>
+                </select>
+              </Link>
+
+              {/* three components */}
+              <Link to={!user && "/auth"}>
+              
               <div>
-                {user ? (
-                  <>
-                    <p>Hello, {user?.email?.split("@")[0]}</p>
-                    <span onClick={() => (user ? auth.signOut() : null)}>
-                      Log Out
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <p>Sign In</p>
-                    <span>Account & List</span>
-                  </>
-                )}
-              </div>
-            </Link>
-            {/* orders */}
-            <Link to="/orders">
-              <p>returns</p>
-              <span>& Orders</span>
-            </Link>
-            {/* cart */}
-            <Link to="/cart" className={classes.cart}>
-              {/* cart icon */}
-              <BiCartAdd size={39} />
-              <span>{totalItem}</span>
-            </Link>
+                {
+                  user?(
+                    <>
+                    <p>Hello {user?.email?.split('@')[0]}</p>
+                    <span onClick={()=>auth.signOut()}> Sign Out</span>
+</>
+                  ):(
+                    <>
+                    <p>Hello,sign In</p>
+                    <span> Account & Lists</span>
+                    </>
+                  )
+                
+                }
+           
+                </div>
+               
+              </Link>
+              {/* orders */}
+              <Link to="/orders">
+                <p>returns</p>
+                <span>& Orders</span>
+              </Link>
+              {/* cart */}
+
+              <Link to="/cart" className={classes.cart}>
+                <BiCart size={35} />
+                <span>{totalItem}</span>
+              </Link>
+            </div>
           </div>
         </section>
+        <LowerHeader />
       </section>
-      <LowerHeader />
-    </section>
+    </>
   );
-};
+}
 
 export default Header;

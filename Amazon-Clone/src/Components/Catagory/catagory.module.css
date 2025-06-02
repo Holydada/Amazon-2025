@@ -1,0 +1,51 @@
+.catagory {
+  height: 350px;
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-top: -20%;
+}
+.catagory img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 250px;
+  padding: 0px 10px;
+}
+.catagory a {
+  text-decoration: none;
+  color: rgb(35, 35, 35);
+}
+.catagory h2,
+.catagory p {
+  padding: 5px;
+  margin-left: 15px;
+}
+.catagory p {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(9, 132, 209);
+}
+/* .catagory_container {
+  position: relative;
+  margin-top: -10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  place-items: center;
+  max-width: 1500px;
+  gap: 50px;
+  margin-right: auto;
+  margin-left: auto;
+} */
+.catagory_container {
+    position: relative;
+  /* Adjusts position slightly upwards */
+    display: grid; /* Enables grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive columns */
+    place-items: center; /* Centers items both horizontally and vertically */
+    max-width: 1500px; /* Sets a maximum width for the container */
+    gap: 50px; /* Adds space between grid items */
+    /* margin-right: auto; Centers the container horizontally */
+    /* margin-left: auto; Centers the container horizontally */
+margin: auto;
+  }
