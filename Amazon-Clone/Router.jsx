@@ -1,6 +1,6 @@
 import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
-import ProtectedRoute from "./src/components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../Amazon-Clone/src/Components/ProtectedRoute/ProtectedRoute";
 import { loadStripe } from "@stripe/stripe-js";
 //used to load stripe to react
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
