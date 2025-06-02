@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import Layout from "../../components/Layout/Layout";
-import ProductCard from "../../components/Product/ProductCard";
+import Layout from "../../Components/Layout/Layout";
+import ProductCard from "../../Components/Product/ProductCard";
 import classes from "./orders.module.css";
 import { db } from "../../Utility/firebase";
-import { DataContext } from "../../components/DataProvider/DataProvider";
+import { DataContext } from "../../Components/DataProvider/DataProvider";
 import { doc } from "firebase/firestore";
 
 function Orders() {
